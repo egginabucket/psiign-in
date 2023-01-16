@@ -1,0 +1,3 @@
+black
+isort
+Django==4.1.5

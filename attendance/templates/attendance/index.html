@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSIIgn In</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script defer type="text/javascript" src="/static/main.js"></script>
+  </head>
+  <body>
+    <h1>Welcome to PSII</h1>
+    <form method="post" class="columns">
+      <div class="hidden">
+        {% csrf_token %}
+        <input id="learner" name="learner" type="text" />
+        <input id="action" name="action" type="text" />
+      </div>
+      <div class="column namelist">
+        {% for l in learners %}
+        <div class="learner" learner-id="{{l.id}}">{{l.short_name}}</div>
+        {% endfor %}
+      </div>
+      <div class="column actions">
+        {% for a in actions %}
+        <div>
+          <button
+            onclick="selectAction"
+            class="action {{a.style}}"
+            action-id="{{a.value}}"
+          >
+            {{ a.label }}
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </form>
+  </body>
+</html>
