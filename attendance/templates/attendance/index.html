@@ -18,7 +18,7 @@
       </div>
       <div class="column namelist">
         {% for l in learners %}
-        <div class="learner" learner-id="{{l.id}}">{{l.short_name}}</div>
+        <div class="learner" data-learner-id="{{l.id}}">{{l.short_name}}</div>
         {% endfor %}
       </div>
       <div class="column actions">
@@ -27,12 +27,18 @@
           <button
             onclick="selectAction"
             class="action {{a.style}}"
-            action-id="{{a.value}}"
+            data-action-id="{{a.value}}"
           >
             {{ a.label }}
           </button>
         </div>
         {% endfor %}
+        <textarea
+          rows="3"
+          name="notes"
+          id="notes"
+          placeholder="Notes..."
+        ></textarea>
       </div>
     </form>
   </body>

@@ -36,6 +36,7 @@ class LearnerRecordAdmin(admin.ModelAdmin):
         "learner",
         "time",
         "action",
+        "notes",
     ]
     search_fields = [
         "learner__first_name",
