@@ -22,6 +22,13 @@
         {% endfor %}
       </div>
       <div class="column actions">
+        <textarea
+          rows="3"
+          name="notes"
+          id="notes"
+          placeholder="Notes..."
+        ></textarea>
+        <hr />
         {% for a in actions %}
         <div>
           <button
@@ -33,12 +40,6 @@
           </button>
         </div>
         {% endfor %}
-        <textarea
-          rows="3"
-          name="notes"
-          id="notes"
-          placeholder="Notes..."
-        ></textarea>
       </div>
     </form>
   </body>

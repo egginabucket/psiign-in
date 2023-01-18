@@ -7,6 +7,7 @@ html {
 body {
   font-family: "Lato", sans-serif;
   background-color: #e9eaef;
+  color: #363636;
   margin: 0px;
 }
 
@@ -23,17 +24,20 @@ input,
 button,
 textarea {
   font-family: "Lato", sans-serif;
+  color: #363636;
 }
 
 .columns {
   display: flex;
+  justify-content: center;
   align-items: stretch;
   overflow: hidden;
 }
 
 .column {
+  margin: 12px;
   padding: 16px;
-  flex: 50%;
+  /* flex: 50%; */
 }
 
 .learner {
@@ -50,7 +54,10 @@ textarea {
 .namelist {
   height: 75vh;
   overflow: scroll;
+  border-radius: 12px;
+  border-right: 12px solid #9cb8e6;
 }
+
 .hidden {
   display: none;
 }
