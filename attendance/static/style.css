@@ -58,7 +58,7 @@ textarea {
 }
 .namelist {
   height: 75vh;
-  overflow: scroll;
+  overflow-y: scroll;
   border-radius: 12px;
   border-right: 12px solid #9cb8e6;
 }
