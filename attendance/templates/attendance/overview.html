@@ -14,8 +14,15 @@
       <tr>
         <td>{{ l.full_name }}</td>
         <td class="{{l.status.style}}">{{ l.status.label }}</td>
+        <td>
+          {% if l.last_record_today and l.last_record_today.notes %}
+          {{l.last_record_today.notes}} {% endif %}
+        </td>
       </tr>
       {% endfor %}
     </table>
+    <footer>
+      <a href="/static/nav.html">Other links</a>
+    </footer>
   </body>
 </html>

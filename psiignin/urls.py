@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from attendance.views import overview, index, history_tsv
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('overview/', overview),
-    path('history.tsv', history_tsv),
-    path('', index),
+    path("admin/", admin.site.urls),
+    path("overview/", overview),
+    path("history.tsv", history_tsv),
+    path("", index),
 ]
