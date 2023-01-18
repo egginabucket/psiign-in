@@ -18,7 +18,7 @@ def index(request: HttpRequest):
         "learners": Learner.objects.active().sorted(),
         "actions": LearnerStatus,
     }
-    if request.method == "POST":
+    if (request.method or "").lower() in "post":
         record = LearnerRecord(
             time=datetime.now(),
             learner=Learner.objects.get(id=int(request.POST["learner"])),
