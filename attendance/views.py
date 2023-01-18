@@ -1,8 +1,16 @@
-from django.shortcuts import render
-from django.http import HttpRequest
-from django.contrib.auth.decorators import login_required
-from attendance.models import Learner, LearnerRecord, LearnerStatus
+import csv
 from datetime import datetime
+
+from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, FileResponse
+from django.shortcuts import render
+
+from attendance.models import Learner, LearnerRecord, LearnerStatus
+
+
+class Echo:
+    def write(self, value):
+        return value
 
 
 def index(request: HttpRequest):
@@ -29,3 +37,19 @@ def overview(request: HttpRequest):
         "learners": Learner.objects.active().sorted(),
     }
     return render(request, "attendance/overview.html", ctx)
+
+
+@login_required
+def history_tsv(request: HttpRequest):
+    def get_rows():
+        yield ["learner", "time", "action", "notes"]
+        for r in LearnerRecord.objects.all():
+            yield [r.learner.full_name, r.time.isoformat(), r.action, r.notes]
+
+    w = csv.writer(Echo(), delimiter="\t")
+    return FileResponse(
+        map(w.writerow, get_rows()),
+        content_type="text/tab-separated-values",
+        as_attachment=True,
+        filename="history.tsv",
+    )
