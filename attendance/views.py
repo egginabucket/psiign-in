@@ -42,9 +42,15 @@ def overview(request: HttpRequest):
 @login_required
 def history_tsv(request: HttpRequest):
     def get_rows():
-        yield ["learner", "time", "action", "notes"]
+        yield ["learner", "date", "time", "action", "notes"]
         for r in LearnerRecord.objects.all():
-            yield [r.learner.full_name, r.time.isoformat(), r.action, r.notes]
+            yield [
+                r.learner.full_name,
+                r.time.strftime("%Y-%m-%d"),
+                r.time.strftime("%H:%M"),
+                r.action,
+                r.notes,
+            ]
 
     w = csv.writer(Echo(), delimiter="\t")
     return FileResponse(
