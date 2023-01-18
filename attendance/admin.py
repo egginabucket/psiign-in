@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from attendance import models
 
 @admin.register(models.Learner)
@@ -21,7 +22,6 @@ class LearnerAdmin(admin.ModelAdmin):
         "activate",
         "deactivate",
     ]
-
     @admin.action()
     def activate(self, request, queryset):
         queryset.update(is_active=True)
