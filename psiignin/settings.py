@@ -1,3 +1,5 @@
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -11,9 +13,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-dash%l+q#8xk6phcp%173h399#5t0+(tm^4by*=32&$8xio7d%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "").lower() in ("false", "0", "no", "off")
 
-ALLOWED_HOSTS = []
+if not DEBUG:
+    SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split()
 
 
 # Application definition
