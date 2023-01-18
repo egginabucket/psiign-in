@@ -1,2 +1,2 @@
-# psiign-in
+# PSIIgn-In
 Attendance tracker for PSII
