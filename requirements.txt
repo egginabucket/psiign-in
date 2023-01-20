@@ -1,3 +1,4 @@
 black
 isort
 Django==4.1.5
+gunicorn==20.1.0
