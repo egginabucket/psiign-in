@@ -33,7 +33,7 @@ class LearnerQuerySet(models.QuerySet["Learner"]):
         return self.filter(is_active=True)
 
     def sorted(self) -> LearnerQuerySet:
-        return self.order_by("first_name", "surname")
+        return self.order_by("first_name", "last_name")
 
 
 class LearnerManager(models.Manager["Learner"]):
@@ -50,20 +50,20 @@ class LearnerManager(models.Manager["Learner"]):
 class Learner(models.Model):
     records: "manager.RelatedManager[LearnerRecord]"
     first_name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(null=True, unique=True)
     is_active = models.BooleanField(default=True)
 
     objects = LearnerManager()
 
     @property
     def full_name(self) -> str:
-        return f"{self.first_name} {self.surname}"
+        return f"{self.first_name} {self.last_name}"
 
     @property
     def short_name(self) -> str:
         if type(self).objects.active().filter(first_name=self.first_name).count() > 1:
-            return f"{self.first_name} {self.surname[0]}"
+            return f"{self.first_name} {self.last_name[0]}"
         return self.first_name
 
     @cached_property

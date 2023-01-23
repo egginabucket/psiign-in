@@ -6,13 +6,13 @@ from attendance import models
 class LearnerAdmin(admin.ModelAdmin):
     list_display = [
         "first_name",
-        "surname",
+        "last_name",
         "email",
         "is_active",
     ]
     search_fields = [
         "first_name",
-        "surname",
+        "last_name",
         "email",
     ]
     list_filter = [
@@ -40,6 +40,6 @@ class LearnerRecordAdmin(admin.ModelAdmin):
     ]
     search_fields = [
         "learner__first_name",
-        "learner__surname",
+        "learner__last_name",
         "learner__email",
     ]
