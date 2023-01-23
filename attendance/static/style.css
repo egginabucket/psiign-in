@@ -2,6 +2,7 @@
 
 html {
   margin: 0px;
+  font-size: 22px;
 }
 
 body {
@@ -12,23 +13,25 @@ body {
 }
 
 footer {
-  margin-bottom: 4px;
-  margin-inline: 12px;
+  margin-bottom: .25rem;
+  margin-inline: .75rem;
 }
 
 h1 {
   text-align: center;
   font-weight: 700;
+  font-size: 1.5rem;
 }
 
 tr {
-  padding: 8px;
+  padding: .5rem;
 }
 
 input,
 button,
 textarea {
   font-family: "Lato", sans-serif;
+  font-size: .8rem;
   color: #363636;
 }
 
@@ -46,7 +49,7 @@ textarea {
 }
 
 .learner {
-  padding: 4px;
+  padding: .25rem;
   cursor: pointer;
 }
 .learner:active {
@@ -59,24 +62,24 @@ textarea {
 .namelist {
   height: 75vh;
   overflow-y: scroll;
-  border-radius: 12px;
-  border-right: 12px solid #9cb8e6;
+  border-radius: .75rem;
+  border-right: .7rem solid #9cb8e6;
 }
 
 .hidden {
   display: none;
 }
 .action {
-  margin: 4px;
+  margin: .25rem;
   border: none;
-  border-radius: 4px;
-  padding: 4px;
+  border-radius: .25rem;
+  padding: .25rem;
   font-weight: 400;
 }
 
 #notes {
-  margin: 4px;
-  font-size: 12px;
+  margin: .25rem;
+  font-size: .75rem;
 }
 
 .action:active {
