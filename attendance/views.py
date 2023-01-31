@@ -27,6 +27,7 @@ def index(request: HttpRequest):
         if notes := request.POST.get("notes"):
             record.notes = notes
         record.save()
+        ctx["last_record"] = record
 
     return render(request, "attendance/index.html", ctx)
 

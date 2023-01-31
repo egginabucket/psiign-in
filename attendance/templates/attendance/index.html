@@ -22,24 +22,33 @@
         {% endfor %}
       </div>
       <div class="column actions">
-        <textarea
-          rows="3"
-          name="notes"
-          id="notes"
-          placeholder="Notes..."
-        ></textarea>
-        <hr />
-        {% for a in actions %}
-        <div>
-          <button
-            onclick="selectAction"
-            class="action {{a.style}}"
-            data-action-id="{{a.value}}"
-          >
-            {{ a.label }}
-          </button>
+        <div class="action-list action-list-visible">
+          <textarea
+            rows="3"
+            name="notes"
+            id="notes"
+            placeholder="Notes..."
+          ></textarea>
+          <hr />
+          {% for a in actions %}
+          <div>
+            <button
+              onclick="selectAction"
+              class="action {{a.style}}"
+              data-action-id="{{a.value}}"
+            >
+              {{ a.label }}
+            </button>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
+        {% if last_record %}
+        <div class="last-record">
+          Marked {{ last_record.learner.short_name }}
+          <br />
+          <b>{{ last_record.get_action_display }}</b>
+        </div>
+        {% endif %}
       </div>
     </form>
     <footer>
