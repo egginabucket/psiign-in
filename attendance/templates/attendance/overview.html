@@ -8,12 +8,12 @@
     <title>PSII Attendance Overview</title>
   </head>
   <body>
-    <h1>Overview</h1>
+    <h1>Attendance Overview</h1>
     <table>
       {% for l in learners %}
-      <tr>
+      <tr class="learner-row">
         <td>{{ l.full_name }}</td>
-        <td class="{{l.status.style}}">{{ l.status.label }}</td>
+        <td><div class="status-cell {{l.status.style}}">{{ l.status.label }}</div></td>
         <td>
           {% if l.last_record_today and l.last_record_today.notes %}
           {{l.last_record_today.notes}} {% endif %}
@@ -21,8 +21,10 @@
       </tr>
       {% endfor %}
     </table>
+    {% if show_nav %}
     <footer>
       <a href="/static/nav.html">Other links</a>
     </footer>
+    {% endif %}
   </body>
 </html>

@@ -23,10 +23,6 @@ h1 {
   font-size: 1.5rem;
 }
 
-tr {
-  padding: 0.5rem;
-}
-
 input,
 button,
 textarea {
@@ -115,4 +111,10 @@ textarea {
 }
 .status-in {
   background-color: #57e389;
+}
+.status-cell {
+  padding: 0.125rem;
+}
+td {
+  padding: 0.125rem;
 }

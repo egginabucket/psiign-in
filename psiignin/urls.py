@@ -17,12 +17,15 @@ from django.contrib import admin
 import django.contrib.auth.urls
 from django.urls import path, include
 
-from attendance.views import overview, index, history_tsv
+from attendance import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("overview/", overview),
-    path("history.tsv", history_tsv),
+    path("overview/", views.overview),
+    path("overview-offline/", views.overview_offline),
+    path("history.tsv", views.history_tsv),
+    path("overview.tsv", views.overview_tsv),
+    path("overview-dl/<filename>", views.overview_tsv_dl),
     path("accounts/", include(django.contrib.auth.urls)),
-    path("", index),
+    path("", views.index),
 ]
