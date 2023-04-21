@@ -11,7 +11,7 @@
     <h1>Attendance Overview</h1>
     <table>
       {% for l in learners %}
-      <tr class="learner-row">
+      <tr>
         <td>{{ l.full_name }}</td>
         <td><div class="status-cell {{l.status.style}}">{{ l.status.label }}</div></td>
         <td>
